@@ -7,7 +7,7 @@ from .models import Post
 def post_list(request):
     object_list = Post.published.all()
     paginator = Paginator(object_list, 3) # 3 posts in each page
-    page = request.GET.get('page')
+    page = request.GET.get('page') # call back to get current page
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
